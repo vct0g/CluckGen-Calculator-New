@@ -1,0 +1,93 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	background-color: #FFFFFF;
+	font-family: verdana, tahoma, arial;
+	font-size: 10px;
+	line-height: 200%;
+}
+
+p
+{
+	font-family: trebuchet ms, verdana, tahoma, arial;
+	font-size: 11px;
+	line-height: 120%;
+}
+
+#main img
+{
+	border: 0px;
+}
+
+
+#main a:active, a:visited, a:link
+{
+	color: #5E8E3E;
+	text-decoration: underline;
+}
+
+#main a:hover
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+
+
+#main h2 {
+	border-bottom: 1px solid #808080;
+	font-family: arial;
+	font-weight: 100;
+	letter-spacing: 8px;
+	font-size: 200%;
+	text-align: right;
+}
+
+
+
+#main li {
+	margin-left: 0;
+	margin-top: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+#main li ol {
+	margin-left: 0;
+	margin-top: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+#main li ol {
+	font-size: 11px;
+	margin-left: 0;
+	margin-top: 0;
+	padding-left: 0;
+}
+
+#main li ol li{
+	font-size: 9px;
+	margin-left: 20;
+	margin-top: 0;
+	padding-left: 16px;
+	background: url(../img/arrow_right.jpg) no-repeat 0 50%;
+}
+
+
+#main #what
+{
+  float: left;
+  width: 9em;
+  margin: 0 0.2em 0 0;
+
+}
+
+#main #tablecontainer #print
+{
+  float: left;
+  width: 9em;
+  margin: 0 0.2em 0 0;
+
+}
