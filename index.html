@@ -40,19 +40,13 @@
 
 		//display the calculation results
 		function KruisEmbed(maleDataValue, femaleDataValue) {
-			var diersoort = 'CHICKEN';
-			var PartialMaleGT = maleDataValue;
-			var PartialFemaleGT = femaleDataValue;
-			var ResultArrayEmbed = new Array();
-			ResultArrayEmbed = KruisingPartialGT(PartialMaleGT, PartialFemaleGT);
-			var stringske = "";
-			var plaatje = "";
-			var isaanfenotype = "no"
+			let ResultArray = new Array();
+			ResultArray = KruisingPartialGT(maleDataValue, femaleDataValue);
 			let allResultsHtml = "";
-			for (ee = 0; ee < ResultArrayEmbed.length; ee++) {
-				array2 = ResultArrayEmbed[ee].split(';');
+			for (ee = 0; ee < ResultArray.length; ee++) {
+				array2 = ResultArray[ee].split(';');
 				allResultsHtml += generateResultContent(array2);
-				//log values
+				//log values to console
 				console.log("array2[0]: ", array2[0]);
 				console.log("array2[1]: ", array2[1]);
 				console.log("array2[2]: ", array2[2]);
