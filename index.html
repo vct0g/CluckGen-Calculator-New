@@ -9,40 +9,38 @@
 	<meta name="verify-v1" content="iRLKHU2/ZygDkV59xRExYqUPwVVEK+f0IMEZVEP6O/o=" />
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	<link rel="stylesheet" href="css/global.css" />
+	<link rel="stylesheet" href="css/index.css" />
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Staatliches:wght@400&display=swap"
+	/>
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Roboto Condensed:wght@400&display=swap"
+	/>
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Albert Sans:wght@400;600&display=swap"
+	/>
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap"
+	/>
 	<!-- JS -->
 	<script type="text/javascript" src="./js/colordatabase.php"></script>
 	<script type="text/javascript" src="./js/kruising.js"></script>
 	<script type="text/javascript" src="./js/kruisingduif.js"></script>
-
+	<script type="text/javascript" src="./js/selectColor.js"></script>
 	<script>
 		//core function to for returning results
 		function HaalAfbeelding(mf, gt) {
 			return ZoekPlaatje(getGTforZoekPlaatje(gt, defgt), mf, "chicken");
 		}
 
-		// this function is for parent chicken display
-		function ReInitGenetic() {
-			var diersoort = document.Theform.animalkind.value;
-			var male = document.Theform.Male.value;
-			var female = Theform.Female.value;
-			if (ZoekPlaatje(male, 'M', diersoort) != "") {
-				document.getElementById("Malepicture").innerHTML = "<img src='chicken_images/" + ZoekPlaatje(male, 'M', diersoort) + "' height='150'>";
-				console.log("output of ZoekPlaatje function:", ZoekPlaatje(male, 'M', diersoort))
-			}
-			else {
-				document.getElementById("Malepicture").innerHTML = "<img src='img/noimage.png' height='150'>";
-			}
-			if (ZoekPlaatje(female, 'F', diersoort) != "") {
-				document.getElementById("Femalepicture").innerHTML = "<img src='chicken_images/" + ZoekPlaatje(female, 'F', diersoort) + "' height='150'>";
-			} else {
-				document.getElementById("Femalepicture").innerHTML = "<img src='img/noimage.png' height='150'>";
-			}
-			document.getElementById("result2Embed").innerHTML = "";
-		}
-
-		// this function display the calculation results
+		//display the calculation results
 		function KruisEmbed(maleDataValue, femaleDataValue) {
-			var diersoort = document.Theform.animalkind.value;
+			var diersoort = 'CHICKEN';
 			var PartialMaleGT = maleDataValue;
 			var PartialFemaleGT = femaleDataValue;
 			var ResultArrayEmbed = new Array();
@@ -50,32 +48,60 @@
 			var stringske = "";
 			var plaatje = "";
 			var isaanfenotype = "no"
-			var output = "";
-			var output = "<TABLE width='100%' cellspacing=0 cellpadding=0 border='0'>";
-
+			let allResultsHtml = "";
 			for (ee = 0; ee < ResultArrayEmbed.length; ee++) {
-				arrinh2 = "";
-				arrinh2 += "";
 				array2 = ResultArrayEmbed[ee].split(';');
-				if (e == 0) {
-					arrinh2 += "<thead><TR><TD colspan='2'>&nbsp;&nbsp;" + array2[0] + "</TD></TR></thead><tbody>";
-				}
-				if (isaanfenotype == "no" && array2[0] == "FENOTYPE") {
-					arrinh2 += "</tbody><TR><TD colspan='2'>&nbsp;</TD></TR>";
-					arrinh2 += "<thead><TR><TD colspan='2'>&nbsp;&nbsp;" + array2[0] + "</TD></TR></thead><tbody>";
-					isaanfenotype = "yes";
-				}
-				arrinh2 += "<TR class='odd'><TD rowspan='4'><img src='chicken_images/" + array2[6] + "' width='95' ></TD><TD>" + array2[1] + "</TD></TR>";
-				console.log("log array2[1]:", array2[6])
-				arrinh2 += "<TR class='odd'><TD>" + array2[2] + "&nbsp;</TD></TR>";
-				arrinh2 += "<TR class='odd'><TD>" + array2[3] + "</TD></TR>";
-				arrinh2 += "<TR class='odd'><TD>" + array2[4] + " / " + array2[5] + "</TD></TR>";
-				output += arrinh2;
+				allResultsHtml += generateResultContent(array2);
+				//log values
+				console.log("array2[0]: ", array2[0]);
+				console.log("array2[1]: ", array2[1]);
+				console.log("array2[2]: ", array2[2]);
+				console.log("array2[3]: ", array2[3]);
+				console.log("array2[4]: ", array2[4]);
+				console.log("array2[5]: ", array2[5]);
+				console.log("array2[6]: ", array2[6]);
 			}
-			output += "</TABLE>";
-			document.getElementById("result2Embed").innerHTML = output;
+			document.querySelector(".resultinfoallframe").innerHTML = allResultsHtml;
 		}
 
+		function generateResultContent(array2) {
+				let gender = array2[1] === "M" ? 'Male' : 'Female';
+				let ratio = array2[3].match(/Ratio = [^,]*/)[0].replace('Ratio = ', '');
+				let minAnimals = array2[3].match(/minimum of animals to breed: \d+/)[0].replace('minimum of animals to breed: ', '');
+				let description = array2[2];
+				let resultImgSrc = "img/offspring/" + array2[6];
+
+				return `
+					<div class="resultinfoindividualframe">
+						<div class="resultimgonlyframe">
+							<img class="icon2" alt="" src="${resultImgSrc}" width="60" />
+						</div>
+						<div class="resultinfoonlyframe">
+							<div class="genderinfoframe">
+								<div class="gender-title">Gender:</div>
+								<div class="gender">${gender}</div>
+							</div>
+							<div class="genderinfoframe">
+								<div class="breed-minimum-title">Breed Minimum:</div>
+								<div class="breed-minimum">${minAnimals}</div>
+							</div>
+							<div class="genderinfoframe">
+								<div class="ratio-title">Ratio:</div>
+								<div class="ratio">${ratio}</div>
+							</div>
+							<div class="descriptionframe">
+								<div class="description-title">Description:</div>
+								<div class="description-content">${description}</div>
+							</div>
+						</div>
+					</div>
+				`;
+		}
+
+		function clearResults() {
+        document.querySelector('.resultinfoallframe').innerHTML = '';
+    	}
+		
 		function redirectLink(clink) {
 			var myString = "./?action=changedefaultcontact&id=";
 			myString += clink;
@@ -111,421 +137,128 @@
 	</script>
 </head>
 
-<body onload="alertit()">
-	<table width="100%" height="100%" cellspacing=0 cellpadding=0 border="0">
-		<tr>
-			<div id="main">
-				<form name=Theform>
-					<input type='hidden' name='animalkind' value='CHICKEN'>
-					<h2>CluckGen Calculator</h2>
-					<div id="tablecontainer">
-						<table>
-							<tbody>
-								<tr height="50">
-									<td>
-										Male:
-										<select name='Male' size='1' onchange='javascript:ReInitGenetic()'>
-											<option value=''>
-												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											</option>
-											<option value='E:E/E,B:B/(B),S:S/(S)'>Barred, Cuckoo</option>
-											<option value='E:E^R/E^R,S:S/(S)'>Birchen</option>
-											<option value='E:E/E'>Black</option>
-											<option value='E:E^R/E^R,S:S/(S)'>Black brested silver</option>
-											<option value='E:E^R/E^R,Mh:Mh/Mh'>Black Copper</option>
-											<option value='E:E^R/E^R'>Black gold</option>
-											<option value='E:E/E,S:S/(S),Mo:mo/mo'>Black mottled</option>
-											<option value='E:E/E,Bl:Bl/bl+,S:S/(S)'>Blue</option>
-											<option value='E:E^R/E^R,Bl:Bl/bl+,S:S/(S)'>Blue brested silver</option>
-											<option value='E:E^R/E^R,Bl:Bl/bl+'>Blue gold</option>
-											<option value='E:E/E,Bl:Bl/bl+,S:S/(S),Pg:Pg/Pg'>Blue laced</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml,Mh:Mh/Mh,Bl:Bl/bl+'>Blue
-												laced Red</option>
-											<option value='E:e+/e+,Bl:Bl/bl+'>Blue Light brown</option>
-											<option value='E:E/E,S:S/(S),Mo:mo/mo,Bl:Bl/bl+'>Blue mottled</option>
-											<option value='E:E^Wh/E^Wh,Bl:Bl/bl+,S:S/(S),Mh:Mh/Mh'>Blue Salmon</option>
-											<option value='E:e+/e+,Bl:Bl/bl+,S:S/(S)'>Blue Silver duckwing</option>
-											<option value='E:E^Wh/E^Wh,Co:Co/Co,Db:Db/Db,Mh:Mh/Mh,Di:Di/Di'>Buff
-											</option>
-											<option value='E:E^Wh/E^Wh,Co:Co/Co'>Buff blacktail</option>
-											<option value='E:e^b/e^b,Co:Co/Co'>Buff Columbian</option>
-											<option value='E:e^b/e^b,Co:Co/Co,B:B/(B)'>Buff Cuckoo</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml,I:I/I'>Chamois, buff
-												laced</option>
-											<option value='E:E/E,I:I^d/i+'>Chocolate (dun based)</option>
-											<option value='E:E/E,Choc:choc/(choc)'>Chocolate (sexlinked)</option>
-											<option value='E:e^b/e^b,Co:Co/Co,S:S/(S)'>Columbia</option>
-											<option value='E:e+/e+,Ig:ig/ig'>Cream Light brown</option>
-											<option value='E:E^Wh/E^Wh,S:S/(s+)'>Cream wheaten</option>
-											<option value='E:e+/e+,B:B/(B)'>Crele</option>
-											<option value='E:E/E,B:B/(B),S:S/(S)'>Cuckoo</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Ml:Ml/Ml'>Double laced</option>
-											<option value='E:E/E,I:I^d/i+'>Dun based chocolate</option>
-											<option value='E:E/E,Mo:mo/mo,S:S/(S)'>Exchequer</option>
-											<option value='E:e+/e+,S:S/(S),I:I^d/i+'>Fawn silver duckwing</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg'>Gold (Campine)</option>
-											<option value='E:E^R/E^R'>Gold birchen, brown red</option>
-											<option value='E:E^R/E^R,B:B/(B)'>Gold Cuckoo</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml'>Gold laced (Blacktail)
-											</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml'>Gold laced
-												(Sebright)</option>
-											<option value='E:e^b/e^b,Db:Db/Db,Pg:Pg/Pg'>Gold quill</option>
-											<option value='E:e+/e+,S:S/(s+)'>Golden duckwing</option>
-											<option value='E:e^b/e^b,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml,Lav:lav/lav'>Isabel
-												lavender spangled</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Ml:Ml/Ml,Mh:Mh/Mh,I:I/i+'>Jubilee (Indian
-												game)</option>
-											<option value='E:E/E,I:I^d/I^d'>Khaki</option>
-											<option value='Pg:Pg/Pg'>Laced partridge</option>
-											<option value='E:e^b/e^b,Co:Co/Co,S:S/(S),Cha:cha/cha'>Lakenvelder</option>
-											<option value='E:E/E,Lav:lav/lav'>Lavender</option>
-											<option value='E:E/E,Lav:lav/lav,B:B/(B)'>Lavender cuckoo</option>
-											<option value='E:e^b/e^b,Co:Co/Co,Mo:mo/mo,Ig:ig/ig'>Lemon porcelaine
-											</option>
-											<option value='E:e+/e+,Mo:mo/mo'>Light brown mottled</option>
-											<option value='E:e^b/e^b,Co:Co/Co,Mo:mo/mo'>Millefleur</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg'>Multiple laced Partridge, pencilled
-											</option>
-											<option value='E:E^Wh/E^Wh,Co:Co/Co,I:I/i+,Mo:mo/mo'>Ochre White Millefleur
-											</option>
-											<option value='E:e+/e+'>Partridge, Light brown</option>
-											<option value='E:E/E,Mo:mo/mo,S:S/(S),I:I/I'>Piebald, dom.white based
-												exchequer</option>
-											<option value='E:e^b/e^b,Co:Co/Co,Mo:mo/mo,Lav:lav/lav'>Porcelain</option>
-											<option value='E:e+/e+,Co:Co/Co,Ml:Ml/Ml'>Quail</option>
-											<option value='E:E^Wh/E^Wh,Mh:Mh/Mh,Co:Co/Co,Db:Db/Db'>Red</option>
-											<option value='E:E^Wh/E^Wh,Co:Co/Co,B:B/(B),Mh:Mh/Mh'>Red barred</option>
-											<option value='E:E^Wh/E^Wh,Mh:Mh/Mh,Co:Co/Co,Mo:mo/mo'>Red mottled</option>
-											<option value='E:e+/e+,I:I/i+'>Red pyle</option>
-											<option value='E:E^Wh/E^Wh,S:S/(S),Mh:Mh/Mh'>Salmon</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,S:S/(S)'>Silver (Campine)
-											</option>
-											<option value='E:e+/e+,S:S/(S)'>Silver duckwing</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml,S:S/(S)'>Silver laced
-												(Blacktail)</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml,S:S/(S)'>Silver
-												laced (Sebright)</option>
-											<option value='E:e^b/e^b,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml,Lav:lav/lav,S:S/(S)'>
-												Silver Lavender Spangled</option>
-											<option value='S:S/(S)'>Silver partridge</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,S:S/(S)'>Silver pencilled, Dark (Brahma)
-											</option>
-											<option value='E:e^b/e^b,Co:Co/Co,Mo:mo/mo,Lav:lav/lav,S:S/(S)'>Silver
-												Porcelain</option>
-											<option value='E:e+/e+,Co:Co/Co,Ml:Ml/Ml,S:S/(S)'>Silver quail</option>
-											<option value='E:e^b/e^b,Db:Db/Db,Pg:Pg/Pg,S:S/(S)'>Silver quill</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml,S:S/(S)'>Silver spangled
-											</option>
-											<option value='E:E^Wh/E^Wh,S:S/(S)'>Silver wheaten</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml'>Spangled</option>
-											<option value='E:E/E,Bl:Bl/Bl'>Splash</option>
-											<option value='E:e^b/e^b,Co:Co/Co,Cha:cha/cha'>Vorwerk, Gold lakenvelder
-											</option>
-											<option value='E:E^Wh/E^Wh'>Wheaten</option>
-											<option value='C:c/c'>White</option>
-											<option value='E:E^Wh/E^Wh,S:S/(S),Co:Co/Co'>White blacktail</option>
-											<option value='E:e^b/e^b,Db:Db/Db,Pg:Pg/Pg,I:I/I'>White patterned Gold quill
-											</option>
-											<option value='E:E^Wh/E^Wh,Co:Co/Co,Mh:Mh/Mh,I:I/i+'>White trimmed Red
-											</option>
-											<option value='E:E/E,I:I/I'>White, dominant</option>
-											<option value='E:E/E,C:c/c'>White, recessive</option>
-											<option value='Ig:ig/ig'>Yellow partridge</option>
-										</select>
-									</td>
-									<td>
-										Female:
-										<select name='Female' size='1' onchange='javascript:ReInitGenetic()'>
-											<option value=''>
-												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											</option>
-											<option value='E:E/E,B:B/(B),S:S/(S)'>Barred, Cuckoo</option>
-											<option value='E:E^R/E^R,S:S/(S)'>Birchen</option>
-											<option value='E:E/E'>Black</option>
-											<option value='E:E^R/E^R,S:S/(S)'>Black brested silver</option>
-											<option value='E:E^R/E^R,Mh:Mh/Mh'>Black Copper</option>
-											<option value='E:E^R/E^R'>Black gold</option>
-											<option value='E:E/E,S:S/(S),Mo:mo/mo'>Black mottled</option>
-											<option value='E:E/E,Bl:Bl/bl+,S:S/(S)'>Blue</option>
-											<option value='E:E^R/E^R,Bl:Bl/bl+,S:S/(S)'>Blue brested silver</option>
-											<option value='E:E^R/E^R,Bl:Bl/bl+'>Blue gold</option>
-											<option value='E:E/E,Bl:Bl/bl+,S:S/(S),Pg:Pg/Pg'>Blue laced</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml,Mh:Mh/Mh,Bl:Bl/bl+'>Blue
-												laced Red</option>
-											<option value='E:e+/e+,Bl:Bl/bl+'>Blue Light brown</option>
-											<option value='E:E/E,S:S/(S),Mo:mo/mo,Bl:Bl/bl+'>Blue mottled</option>
-											<option value='E:E^Wh/E^Wh,Bl:Bl/bl+,S:S/(S),Mh:Mh/Mh'>Blue Salmon</option>
-											<option value='E:e+/e+,Bl:Bl/bl+,S:S/(S)'>Blue Silver duckwing</option>
-											<option value='E:E^Wh/E^Wh,Co:Co/Co,Db:Db/Db,Mh:Mh/Mh,Di:Di/Di'>Buff
-											</option>
-											<option value='E:E^Wh/E^Wh,Co:Co/Co'>Buff blacktail</option>
-											<option value='E:e^b/e^b,Co:Co/Co'>Buff Columbian</option>
-											<option value='E:e^b/e^b,Co:Co/Co,B:B/(B)'>Buff Cuckoo</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml,I:I/I'>Chamois, buff
-												laced</option>
-											<option value='E:E/E,I:I^d/i+'>Chocolate (dun based)</option>
-											<option value='E:E/E,Choc:choc/(choc)'>Chocolate (sexlinked)</option>
-											<option value='E:e^b/e^b,Co:Co/Co,S:S/(S)'>Columbia</option>
-											<option value='E:e+/e+,Ig:ig/ig'>Cream Light brown</option>
-											<option value='E:E^Wh/E^Wh,S:S/(s+)'>Cream wheaten</option>
-											<option value='E:e+/e+,B:B/(B)'>Crele</option>
-											<option value='E:E/E,B:B/(B),S:S/(S)'>Cuckoo</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Ml:Ml/Ml'>Double laced</option>
-											<option value='E:E/E,I:I^d/i+'>Dun based chocolate</option>
-											<option value='E:E/E,Mo:mo/mo,S:S/(S)'>Exchequer</option>
-											<option value='E:e+/e+,S:S/(S),I:I^d/i+'>Fawn silver duckwing</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg'>Gold (Campine)</option>
-											<option value='E:E^R/E^R'>Gold birchen, brown red</option>
-											<option value='E:E^R/E^R,B:B/(B)'>Gold Cuckoo</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml'>Gold laced (Blacktail)
-											</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml'>Gold laced
-												(Sebright)</option>
-											<option value='E:e^b/e^b,Db:Db/Db,Pg:Pg/Pg'>Gold quill</option>
-											<option value='E:e+/e+,S:S/(s+)'>Golden duckwing</option>
-											<option value='E:e^b/e^b,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml,Lav:lav/lav'>Isabel
-												lavender spangled</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Ml:Ml/Ml,Mh:Mh/Mh,I:I/i+'>Jubilee (Indian
-												game)</option>
-											<option value='E:E/E,I:I^d/I^d'>Khaki</option>
-											<option value='Pg:Pg/Pg'>Laced partridge</option>
-											<option value='E:e^b/e^b,Co:Co/Co,S:S/(S),Cha:cha/cha'>Lakenvelder</option>
-											<option value='E:E/E,Lav:lav/lav'>Lavender</option>
-											<option value='E:E/E,Lav:lav/lav,B:B/(B)'>Lavender cuckoo</option>
-											<option value='E:e^b/e^b,Co:Co/Co,Mo:mo/mo,Ig:ig/ig'>Lemon porcelaine
-											</option>
-											<option value='E:e+/e+,Mo:mo/mo'>Light brown mottled</option>
-											<option value='E:e^b/e^b,Co:Co/Co,Mo:mo/mo'>Millefleur</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg'>Multiple laced Partridge, pencilled
-											</option>
-											<option value='E:E^Wh/E^Wh,Co:Co/Co,I:I/i+,Mo:mo/mo'>Ochre White Millefleur
-											</option>
-											<option value='E:e+/e+'>Partridge, Light brown</option>
-											<option value='E:E/E,Mo:mo/mo,S:S/(S),I:I/I'>Piebald, dom.white based
-												exchequer</option>
-											<option value='E:e^b/e^b,Co:Co/Co,Mo:mo/mo,Lav:lav/lav'>Porcelain</option>
-											<option value='E:e+/e+,Co:Co/Co,Ml:Ml/Ml'>Quail</option>
-											<option value='E:E^Wh/E^Wh,Mh:Mh/Mh,Co:Co/Co,Db:Db/Db'>Red</option>
-											<option value='E:E^Wh/E^Wh,Co:Co/Co,B:B/(B),Mh:Mh/Mh'>Red barred</option>
-											<option value='E:E^Wh/E^Wh,Mh:Mh/Mh,Co:Co/Co,Mo:mo/mo'>Red mottled</option>
-											<option value='E:e+/e+,I:I/i+'>Red pyle</option>
-											<option value='E:E^Wh/E^Wh,S:S/(S),Mh:Mh/Mh'>Salmon</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,S:S/(S)'>Silver (Campine)
-											</option>
-											<option value='E:e+/e+,S:S/(S)'>Silver duckwing</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml,S:S/(S)'>Silver laced
-												(Blacktail)</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml,S:S/(S)'>Silver
-												laced (Sebright)</option>
-											<option value='E:e^b/e^b,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml,Lav:lav/lav,S:S/(S)'>
-												Silver Lavender Spangled</option>
-											<option value='S:S/(S)'>Silver partridge</option>
-											<option value='E:e^b/e^b,Pg:Pg/Pg,S:S/(S)'>Silver pencilled, Dark (Brahma)
-											</option>
-											<option value='E:e^b/e^b,Co:Co/Co,Mo:mo/mo,Lav:lav/lav,S:S/(S)'>Silver
-												Porcelain</option>
-											<option value='E:e+/e+,Co:Co/Co,Ml:Ml/Ml,S:S/(S)'>Silver quail</option>
-											<option value='E:e^b/e^b,Db:Db/Db,Pg:Pg/Pg,S:S/(S)'>Silver quill</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml,S:S/(S)'>Silver spangled
-											</option>
-											<option value='E:E^Wh/E^Wh,S:S/(S)'>Silver wheaten</option>
-											<option value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml'>Spangled</option>
-											<option value='E:E/E,Bl:Bl/Bl'>Splash</option>
-											<option value='E:e^b/e^b,Co:Co/Co,Cha:cha/cha'>Vorwerk, Gold lakenvelder
-											</option>
-											<option value='E:E^Wh/E^Wh'>Wheaten</option>
-											<option value='C:c/c'>White</option>
-											<option value='E:E^Wh/E^Wh,S:S/(S),Co:Co/Co'>White blacktail</option>
-											<option value='E:e^b/e^b,Db:Db/Db,Pg:Pg/Pg,I:I/I'>White patterned Gold quill
-											</option>
-											<option value='E:E^Wh/E^Wh,Co:Co/Co,Mh:Mh/Mh,I:I/i+'>White trimmed Red
-											</option>
-											<option value='E:E/E,I:I/I'>White, dominant</option>
-											<option value='E:E/E,C:c/c'>White, recessive</option>
-											<option value='Ig:ig/ig'>Yellow partridge</option>
-										</select>
-									</td>
-									<td>
-										<input type="button" class='button' VALUE="Calculate"
-											onclick="javascript:KruisEmbed();">
-									</td>
-								</tr>
-								<tr>
-									<td height="200">
-										<SPAN id=Malepicture></SPAN>
-									</td>
-									<td>
-										<SPAN id=Femalepicture></SPAN>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<!-- BELOW ARE RESULTS -->
-						<span id=result1Embed></span>
-						<span id=result2Embed></span>
+	<body>
+		<div class="index1">
+			<div class="chickencal-mainframe">
+				<div class="calmale">
+					<div class="cal-left">
+					<div class="titleandbreedname">
+						<div class="gender-title">MALE</div>
+						<div class="breednameframe">
+						<div class="m-breedname">Fawn Orange Chicken Baby</div>
+						</div>
 					</div>
-				</form>
-	</table>
-
-	<html>
-
-
-	
-				<!DOCTYPE html>
-				<html>
-				  <head>
-					<meta charset="utf-8" />
-					<meta name="viewport" content="initial-scale=1, width=device-width" />
-				
-					<link rel="stylesheet" href="css/global.css" />
-					<link rel="stylesheet" href="css/index.css" />
-					<link
-					  rel="stylesheet"
-					  href="https://fonts.googleapis.com/css2?family=Staatliches:wght@400&display=swap"
-					/>
-					<link
-					  rel="stylesheet"
-					  href="https://fonts.googleapis.com/css2?family=Roboto Condensed:wght@400&display=swap"
-					/>
-					<link
-					  rel="stylesheet"
-					  href="https://fonts.googleapis.com/css2?family=Albert Sans:wght@400;600&display=swap"
-					/>
-					<link
-					  rel="stylesheet"
-					  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap"
-					/>
-					<script type="text/javascript" src="./js/selectColor.js"></script>
-				  </head>
-				  <body>
-					<div class="index1">
-					  <div class="chickencal-mainframe">
-						<div class="calmale">
-						  <div class="cal-left">
-							<div class="titleandbreedname">
-							  <div class="gender-title">MALE</div>
-							  <div class="breednameframe">
-								<div class="m-breedname">Fawn Orange Chicken Baby</div>
-							  </div>
-							</div>
-							<div class="breedimg mbreedimg">
-							  <img class="icon" alt="" src="./public/1-1@2x.png" />
-							</div>
-							<div class="colorselection">
-								<button class="color-button-highlight" id="SilverButtonM">
-									<div class="color">Silver</div>
-								</button>
-								<button class="color-button" id="GoldButtonM">
-									<div class="color">Gold</div>
-								</button>
-								<button class="color-button" id="RedButtonM">
-									<div class="color">Red</div>
-								</button>
-								<button class="color-button" id="LemonButtonM">
-									<div class="color">LEMON</div>
-								</button>
-							</div>
-						  </div>
-						  <div class="calmale-right">
-							<img
-							  class="malechickselpic-icon"
-							  alt=""
-							  src="./public/malechickselpic@2x.png"
-							/>
-						  </div>
-						</div>
-						<div class="calmale">
-						  <div class="cal-left">
-							<div class="titleandbreedname1">
-							  <div class="gender-title">FEMAlE</div>
-							  <div class="breednameframe">
-								<div class="f-breedname">Fawn Orange Chicken Baby</div>
-							  </div>
-							</div>
-							<div class="breedimg fbreedimg">
-							  <img class="icon" alt="" src="./public/1-1@2x.png" />
-							</div>
-							<div class="colorselection">
-								<button class="color-button-highlight" id="SilverButtonF">
-									<div class="color">Silver</div>
-								</button>
-								<button class="color-button" id="GoldButtonF">
-									<div class="color">Gold</div>
-								</button>
-								<button class="color-button" id="RedButtonF">
-									<div class="color">Red</div>
-								</button>
-								<button class="color-button" id="LemonButtonF">
-									<div class="color">LEMON</div>
-								</button>
-							</div>
-						  </div>
-						  <div class="calfemale-right">
-							<img
-							  class="malechickselpic-icon"
-							  alt=""
-							  src="./public/malechickselpic@2x.png"
-							/>
-						  </div>
-						</div>
-					  </div>
-					  <div class="chickencal-result">
-						<div class="result-top">
-						  <button class="clear-frame">
-							<div class="clear">Clear</div>
-						  </button>
-						  <div class="result-frame">
-							<div class="result">Result</div>
-						  </div>
-						</div>
-						<div class="result-main">
-						  <div class="resultinfoallframe">
-							<div class="resultinfoindividualframe">
-							  <div class="resultimgonlyframe">
-								<img class="icon2" alt="" src="./public/1-11@2x.png" />
-				
-								<img class="icon2" alt="" src="./public/1-11@2x.png" />
-							  </div>
-							  <div class="resultinfoonlyframe">
-								<div class="genderinfoframe">
-								  <div class="ratio-title">Gender:</div>
-								  <div class="gender">Male</div>
-								</div>
-								<div class="genderinfoframe">
-								  <div class="breed-minimum-title">Breed Minimum:</div>
-								  <div class="breed-minimum">2</div>
-								</div>
-								<div class="genderinfoframe">
-								  <div class="ratio-title">Ratio:</div>
-								  <div class="ratio">25%</div>
-								</div>
-								<div class="genderinfoframe">
-								  <div class="genetic-makeup-title">Genetic Makeup:</div>
-								  <a class="genetic-click-here" target="_blank">
-									<div class="genetic-makeup-title">Check here</div>
-									<img
-									  class="click-here-icon"
-									  alt=""
-									  src="./public/click-here-icon.svg"
-									/>
-								  </a>
-								</div>
-								<div class="descriptionframe">
-								  <div class="description-title">Description:</div>
-								  <div class="description-content">
-									black petterened gold duckwing [single
-									comb]..................................................................
-								  </div>
-								</div>
-							  </div>
-							</div>
-						  </div>
-						</div>
-					  </div>
+					<div class="breedimg mbreedimg">
+						<img class="icon" alt="" src="./public/1-1@2x.png" />
 					</div>
-				  </body>
-				</html>
-				
+					<div class="colorselection">
+						<button class="color-button-highlight" id="SilverButtonM">
+							<div class="color">Silver</div>
+						</button>
+						<button class="color-button" id="GoldButtonM">
+							<div class="color">Gold</div>
+						</button>
+						<button class="color-button" id="RedButtonM">
+							<div class="color">Red</div>
+						</button>
+						<button class="color-button" id="LemonButtonM">
+							<div class="color">LEMON</div>
+						</button>
+					</div>
+					</div>
+					<div class="calmale-right">
+					<img
+						class="malechickselpic-icon"
+						alt=""
+						src="./public/malechickselpic@2x.png"
+					/>
+					</div>
+				</div>
+				<div class="calmale">
+					<div class="cal-left">
+					<div class="titleandbreedname1">
+						<div class="gender-title">FEMAlE</div>
+						<div class="breednameframe">
+						<div class="f-breedname">Fawn Orange Chicken Baby</div>
+						</div>
+					</div>
+					<div class="breedimg fbreedimg">
+						<img class="icon" alt="" src="./public/1-1@2x.png" />
+					</div>
+					<div class="colorselection">
+						<button class="color-button-highlight" id="SilverButtonF">
+							<div class="color">Silver</div>
+						</button>
+						<button class="color-button" id="GoldButtonF">
+							<div class="color">Gold</div>
+						</button>
+						<button class="color-button" id="RedButtonF">
+							<div class="color">Red</div>
+						</button>
+						<button class="color-button" id="LemonButtonF">
+							<div class="color">LEMON</div>
+						</button>
+					</div>
+					</div>
+					<div class="calfemale-right">
+					<img
+						class="malechickselpic-icon"
+						alt=""
+						src="./public/malechickselpic@2x.png"
+					/>
+					</div>
 
-	</html>
+				</div>
+			</div>
+			<!-- RESULT PANEL -->
+		<div class="chickencal-result">
+			<div class="result-top">
+				<button class="clear-frame" onclick="clearResults()">
+				<div class="clear">Clear</div>
+				</button>
+				<div class="result-frame">
+				<div class="result">Result</div>
+				</div>
+			</div>
+			<div class="result-main">
+				<div class="resultinfoallframe">
+					<div class="resultinfoindividualframe">
+						<div class="resultimgonlyframe">
+						<img id="resultImage" class="icon2" alt="" src="" width="60" />
+						</div>
+						<div class="resultinfoonlyframe">
+						<div class="genderinfoframe">
+							<div class="gender-title">Gender:</div>
+							<div class="gender" id="gender"></div>
+						</div>
+						<div class="genderinfoframe">
+							<div class="breed-minimum-title">Breed Minimum:</div>
+							<div class="breed-minimum" id="breed-minimum"></div>
+						</div>
+						<div class="genderinfoframe">
+							<div class="ratio-title">Ratio:</div>
+							<div class="ratio" id="ratio"></div>
+						</div>
+						<div class="genderinfoframe">
+							<div class="genetic-makeup-title">Genetic Makeup:</div>
+							<a class="genetic-click-here" target="_blank">
+							<div class="genetic-makeup-title">Check here</div>
+							<img
+								class="click-here-icon"
+								alt=""
+								src="./public/click-here-icon.svg"
+							/>
+							</a>
+						</div>
+						<div class="descriptionframe">
+							<div class="description-title">Description:</div>
+							<div class="description-content" id="description">
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		</div>	
+	</body>

@@ -1,56 +1,52 @@
 let lastSelectedMaleDataValue = null;
 let lastSelectedFemaleDataValue = null;
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  // Event listener for Silver button
+  document.getElementById("SilverButtonM").addEventListener("click", () => {
+    updateContent("SilverM");
+  });
 
-    // Event listener for Silver button
-    document.getElementById('SilverButtonM').addEventListener('click', () => {
-        updateContent('SilverM');
-    });
+  // Event listener for Gold button
+  document.getElementById("GoldButtonM").addEventListener("click", () => {
+    updateContent("GoldM");
+  });
 
-    // Event listener for Gold button
-    document.getElementById('GoldButtonM').addEventListener('click', () => {
-        updateContent('GoldM');
-    });
+  document.getElementById("RedButtonM").addEventListener("click", () => {
+    updateContent("RedM");
+  });
 
-    document.getElementById('RedButtonM').addEventListener('click', () => {
-        updateContent('RedM');
-    });
+  document.getElementById("LemonButtonM").addEventListener("click", () => {
+    updateContent("LemonM");
+  });
 
-    document.getElementById('LemonButtonM').addEventListener('click', () => {
-        updateContent('LemonM');
-    });
+  // Event listener for Silver button
+  document.getElementById("SilverButtonF").addEventListener("click", () => {
+    updateContent("SilverF");
+  });
 
-    // Event listener for Silver button
-    document.getElementById('SilverButtonF').addEventListener('click', () => {
-        updateContent('SilverF');
-    });
+  // Event listener for Gold button
+  document.getElementById("GoldButtonF").addEventListener("click", () => {
+    updateContent("GoldF");
+  });
 
-    // Event listener for Gold button
-    document.getElementById('GoldButtonF').addEventListener('click', () => {
-        updateContent('GoldF');
-    });
+  document.getElementById("RedButtonF").addEventListener("click", () => {
+    updateContent("RedF");
+  });
 
-    document.getElementById('RedButtonF').addEventListener('click', () => {
-        updateContent('RedF');
-    });
+  document.getElementById("LemonButtonF").addEventListener("click", () => {
+    updateContent("LemonF");
+  });
 
-    document.getElementById('LemonButtonF').addEventListener('click', () => {
-        updateContent('LemonF');
-    });
+  function updateContent(color) {
+    let containerm = document.querySelector(".calmale-right");
+    let containerf = document.querySelector(".calfemale-right");
 
-
-
-
-    function updateContent(color) {
-        let containerm = document.querySelector('.calmale-right');
-        let containerf = document.querySelector('.calfemale-right');
-
-        // Change the innerHTML based on the color
-        switch (color) {
-            case 'GoldM':
-                containerm.innerHTML = `
-            <a href="javascript:void(0);" onclick="handlemImageClick(this);">
+    // Change the innerHTML based on the color
+    switch (color) {
+      case "GoldM":
+        containerm.innerHTML = `
+            <a href="javascript:void(0);" onclick="handleMaleImageClick(this);">
             
             <img
               class="malechickselpic-icon"
@@ -208,10 +204,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             `;
 
-                break;
-            case 'RedM':
-                containerm.innerHTML = `
-                <a href="javascript:void(0);" onclick="handlemImageClick(this);">
+        break;
+      case "RedM":
+        containerm.innerHTML = `
+                <a href="javascript:void(0);" onclick="handleMaleImageClick(this);">
                 <img
                 class="malechickselpic-icon"
                   alt="White Trimmed Red"
@@ -236,10 +232,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 src="img/male/Mzwartroodcolumbiakoekoek.JPG"
                 data-value='E:E^Wh/E^Wh,Co:Co/Co,B:B/(B),Mh:Mh/Mh'
               /></a>`;
-                break;
-            case 'LemonM':
-                containerm.innerHTML = `
-                <a href="javascript:void(0);" onclick="handlemImageClick(this);">
+        break;
+      case "LemonM":
+        containerm.innerHTML = `
+                <a href="javascript:void(0);" onclick="handleMaleImageClick(this);">
                 <img
                 class="malechickselpic-icon"
                   alt="Cream Light Brown"
@@ -263,13 +259,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 alt="Porcelain"
                 src="img/male/Mparelgrijsgeelporselein.JPG"
                 data-value='E:e^b/e^b,Co:Co/Co,Mo:mo/mo,Lav:lav/lav'
-              /></a>`
-                    ;
-                break;
-        
-            case 'GoldF':
-                containerf.innerHTML = `
-            <a href="javascript:void(0);" onclick="handlefImageClick(this);">
+              /></a>`;
+        break;
+
+      case "GoldF":
+        containerf.innerHTML = `
+            <a href="javascript:void(0);" onclick="handleFemaleImageClick(this);">
             
             <img
               class="femalechickselpic-icon"
@@ -427,10 +422,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             `;
 
-                break;
-            case 'RedF':
-                containerf.innerHTML = `
-                <a href="javascript:void(0);" onclick="handlefImageClick(this);">
+        break;
+      case "RedF":
+        containerf.innerHTML = `
+                <a href="javascript:void(0);" onclick="handleFemaleImageClick(this);">
                 <img
                 class="femalechickselpic-icon"
                   alt="White Trimmed Red"
@@ -455,10 +450,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 src="img/female/zwartroodcolumbiakoekoek.JPG"
                 data-value='E:E^Wh/E^Wh,Co:Co/Co,B:B/(B),Mh:Mh/Mh'
               /></a>`;
-                break;
-            case 'LemonF':
-                containerf.innerHTML = `
-                <a href="javascript:void(0);" onclick="handlefImageClick(this);">
+        break;
+      case "LemonF":
+        containerf.innerHTML = `
+                <a href="javascript:void(0);" onclick="handleFemaleImageClick(this);">
                 <img
                 class="femalechickselpic-icon"
                   alt="Cream Light Brown"
@@ -482,15 +477,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 alt="Porcelain"
                 src="img/female/parelgrijsgeelporselein.JPG"
                 data-value='E:e^b/e^b,Co:Co/Co,Mo:mo/mo,Lav:lav/lav'
-              /></a>`
-                    ;
-                break;
-                
-          
-            default:
-                case 'SilverM':
-                    containerm.innerHTML = `
-                    <a href="javascript:void(0);" onclick="handlemImageClick(this);">
+              /></a>`;
+        break;
+
+      default:
+      case "SilverM":
+        containerm.innerHTML = `
+                    <a href="javascript:void(0);" onclick="handleMaleImageClick(this);">
                 <img
                     class="femalechickselpic-icon"
                     alt="Piebald - dom.white based exchequer"
@@ -607,10 +600,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 />
                 </a>
                   `;
-                    break;
-                case 'SilverF':
-                    containerf.innerHTML = `
-                    <a href="javascript:void(0);" onclick="handlefImageClick(this);">
+        break;
+      case "SilverF":
+        containerf.innerHTML = `
+                    <a href="javascript:void(0);" onclick="handleFemaleImageClick(this);">
                 <img
                     class="femalechickselpic-icon"
                     alt="Piebald - dom.white based exchequer"
@@ -727,63 +720,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 />
                 </a>
                   `;
-                    break;
-        }
+        break;
     }
+  }
 });
 
+function handleMaleImageClick() {
+  // Get all the image elements with the class "malechickselpic-icon"
+  const imageElements = document.querySelectorAll(".malechickselpic-icon");
 
+  // Get the elements where you want to display the selected image and text
+  const breedNameElement = document.querySelector(
+    ".breednameframe .m-breedname"
+  ); // Breed name
+  const breedImageElement = document.querySelector(".mbreedimg img"); // Breed image
 
-function handlefImageClick() {
-    // Get all the image elements with the class "femalemalechickselpic-icon"
-    const imageElements = document.querySelectorAll('.femalechickselpic-icon');
+  // Add click event listeners to each image
+  imageElements.forEach((imgElement) => {
+    imgElement.addEventListener("click", function () {
+      // Get the alt text and src attribute from the clicked image
+      const altText = imgElement.getAttribute("alt");
+      const src = imgElement.getAttribute("src");
+      lastSelectedMaleDataValue = imgElement.getAttribute("data-value");
 
-    // Get the elements where you want to display the selected image and text
-    const breedNameElement = document.querySelector('.breednameframe .f-breedname'); // Breed name
-    const breedImageElement = document.querySelector('.fbreedimg img'); // Breed image
+      // Update the displayed breed name
+      breedNameElement.textContent = altText;
 
-    // Add click event listeners to each image
-    imageElements.forEach((imgElement) => {
-        imgElement.addEventListener('click', function () {
-            // Get the alt text and src attribute from the clicked image
-            const altText = imgElement.getAttribute('alt');
-            const src = imgElement.getAttribute('src');
-            lastSelectedFemaleDataValue = imgElement.getAttribute('data-value');
-            // Update the displayed breed name
-            breedNameElement.textContent = altText;
+      // Set the breed image source to the src of the clicked image
+      breedImageElement.src = src;
 
-            // Set the breed image source to the src of the clicked image
-            breedImageElement.src = src;
-
-            KruisEmbed(lastSelectedMaleDataValue, lastSelectedFemaleDataValue);
-        });
+      KruisEmbed(lastSelectedMaleDataValue, lastSelectedFemaleDataValue);
     });
+  });
 }
 
-function handlemImageClick() {
-    // Get all the image elements with the class "malechickselpic-icon"
-    const imageElements = document.querySelectorAll('.malechickselpic-icon');
+function handleFemaleImageClick() {
+  // Get all the image elements with the class "femalemalechickselpic-icon"
+  const imageElements = document.querySelectorAll(".femalechickselpic-icon");
 
-    // Get the elements where you want to display the selected image and text
-    const breedNameElement = document.querySelector('.breednameframe .m-breedname'); // Breed name
-    const breedImageElement = document.querySelector('.mbreedimg img'); // Breed image
+  // Get the elements where you want to display the selected image and text
+  const breedNameElement = document.querySelector(
+    ".breednameframe .f-breedname"
+  ); // Breed name
+  const breedImageElement = document.querySelector(".fbreedimg img"); // Breed image
 
-    // Add click event listeners to each image
-    imageElements.forEach((imgElement) => {
-        imgElement.addEventListener('click', function () {
-            // Get the alt text and src attribute from the clicked image
-            const altText = imgElement.getAttribute('alt');
-            const src = imgElement.getAttribute('src');
-            lastSelectedMaleDataValue = imgElement.getAttribute('data-value');
+  // Add click event listeners to each image
+  imageElements.forEach((imgElement) => {
+    imgElement.addEventListener("click", function () {
+      // Get the alt text and src attribute from the clicked image
+      const altText = imgElement.getAttribute("alt");
+      const src = imgElement.getAttribute("src");
+      lastSelectedFemaleDataValue = imgElement.getAttribute("data-value");
+      // Update the displayed breed name
+      breedNameElement.textContent = altText;
+      // Set the breed image source to the src of the clicked image
+      breedImageElement.src = src;
 
-            // Update the displayed breed name
-            breedNameElement.textContent = altText;
-
-            // Set the breed image source to the src of the clicked image
-            breedImageElement.src = src;
-
-           
-            KruisEmbed(lastSelectedMaleDataValue, lastSelectedFemaleDataValue);
-        });
+      KruisEmbed(lastSelectedMaleDataValue, lastSelectedFemaleDataValue);
     });
+  });
 }
