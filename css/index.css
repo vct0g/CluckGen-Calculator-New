@@ -359,6 +359,13 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
+
+.resultinfoallframe {
+  max-height: 800px; 
+  overflow-y: auto; 
+}
+
 .resultinfoallframe {
   align-self: stretch;
   background-color: var(--color-darkslategray);
