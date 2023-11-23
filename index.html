@@ -93,41 +93,8 @@
 		}
 
 		function clearResults() {
-        document.querySelector('.resultinfoallframe').innerHTML = '';
-    	}
-		
-		function redirectLink(clink) {
-			var myString = "./?action=changedefaultcontact&id=";
-			myString += clink;
-			window.location = myString;
+		document.querySelector('.resultinfoallframe').innerHTML = '';
 		}
-
-		function geneticcalculate() {
-			var diersoort = document.Theform.animalkind.value;
-			var Male = document.Theform.Male.value;
-			var Female = document.Theform.Female.value;
-			var Linkstart = "http://home.hetnet.nl/~h.meijers69/kruising.html?mgt=";
-			var Linkmiddle = "&fgt=";
-			window.open(Linkstart + Male + Linkmiddle + Female)
-		}
-
-		function submitanimal(animal, combination, exclusive) {
-			var myString = "./?action=combinationaddanimal&Combination=";
-			myString += combination;
-			myString += "&Animal=";
-			myString += animal;
-			myString += "&Exclusive=";
-			myString += exclusive;
-			window.location = myString;
-		}
-
-		function popitup(url) {
-			newwindow = window.open(url, 'name', 'height=800,width=700');
-		}
-
-		function alertit() {
-			ReInitGenetic()
-		}	
 	</script>
 </head>
 
