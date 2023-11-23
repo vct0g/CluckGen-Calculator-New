@@ -33,7 +33,7 @@
 	<script type="text/javascript" src="./js/kruisingduif.js"></script>
 	<script type="text/javascript" src="./js/selectColor.js"></script>
 	<script>
-		//core function to for returning results
+		//core function for returning results
 		function HaalAfbeelding(mf, gt) {
 			return ZoekPlaatje(getGTforZoekPlaatje(gt, defgt), mf, "chicken");
 		}
@@ -62,7 +62,7 @@
 				let gender = array2[1] === "M" ? 'Male' : 'Female';
 				let ratio = array2[3].match(/Ratio = [^,]*/)[0].replace('Ratio = ', '');
 				let minAnimals = array2[3].match(/minimum of animals to breed: \d+/)[0].replace('minimum of animals to breed: ', '');
-				let description = array2[2];
+				let description = array2[5];
 				let resultImgSrc = "img/offspring/" + array2[6];
 
 				return `
