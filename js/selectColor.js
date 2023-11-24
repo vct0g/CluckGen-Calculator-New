@@ -476,115 +476,115 @@ document.addEventListener("DOMContentLoaded", () => {
       case "SilverM":
         containerm.innerHTML = `
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Piebald - dom.white based exchequer"
                     src="img/male/Mwituitgebreidporselein.JPG"
                     data-value='E:E/E,Mo:mo/mo,S:S/(S),I:I/I'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Birchen"
                     src="img/male/zwartzilverberken.JPG"
                     data-value='E:E^R/E^R,S:S/(S)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Black Brested Silver"
                     src="img/male/zwartzilverberken.JPG"
                     data-value='E:E^R/E^R,S:S/(S)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Golden Duckwing"
                     src="img/male/zwartzilverpatrijs.JPG"
                     data-value='E:e+/e+,S:S/(s+)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Silver Wheaten"
                     src="img/male/zwartzilvertarwe.JPG"
                     data-value='E:E^Wh/E^Wh,S:S/(S)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Black Mottled"
                     src="img/male/Mzwartuitgebreidporselein.JPG"
                     data-value='E:E/E,S:S/(S),Mo:mo/mo'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Silver Spangled"
                     src="img/male/Mzwartzilvergeloverd.JPG"
                     data-value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml,S:S/(S)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Silver laced (Blacktail)"
                     src="img/male/Mzwartzilvergezoomd.JPG"
                     data-value='E:e^b/e^b,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml,S:S/(S)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Silver laced (Sebright)"
                     src="img/male/Mzwartzilvergezoomd.JPG"
                     data-value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Co:Co/Co,Ml:Ml/Ml,S:S/(S)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Barred Cuckoo"
                     src="img/male/Mzwartuitgebreidkoekoek.JPG"
                     data-value='E:E/E,B:B/(B),S:S/(S)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Cuckoo"
                     src="img/male/Mzwartuitgebreidkoekoek.JPG"
                     data-value='E:E/E,B:B/(B),S:S/(S)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Blue Brested Silver"
                     src="img/male/blauwzilverberken.JPG"
                     data-value='E:E^R/E^R,Bl:Bl/bl+,S:S/(S)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Blue Silver duckwing"
                     src="img/male/blauwzilverpatrijs.JPG"
                     data-value='E:e+/e+,Bl:Bl/bl+,S:S/(S)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Fawn Silver Duckwing"
                     src="img/male/bruinzilverpatrijs.JPG"
                     data-value='E:e+/e+,S:S/(S),I:I^d/i+'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Khaki"
                     src="img/male/Mparelgrijsuitgebreid.JPG"
                     data-value='E:E/E,I:I^d/I^d'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Lavender"
                     src="img/male/Mparelgrijsuitgebreid.JPG"
                     data-value='E:E/E,Lav:lav/lav'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Lavender Cuckoo"
                     src="img/male/Mparelgrijsuitgebreidkoekoek.JPG"
                     data-value='E:E/E,Lav:lav/lav,B:B/(B)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Silver Lavender Spangled"
                     src="img/male/Mparelgrijszilvergeloverd.JPG"
                     data-value='E:e^b/e^b,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml,Lav:lav/lav,S:S/(S)'
                 />
                 <img
-                    class="femalechickselpic-icon"
+                    class="malechickselpic-icon"
                     alt="Silver Porcelain"
                     src="img/male/Mparelgrijszilverporselein.JPG"
                     data-value='E:e^b/e^b,Co:Co/Co,Mo:mo/mo,Lav:lav/lav,S:S/(S)'
@@ -741,15 +741,12 @@ function handleMaleImageClick(clickedImage) {
     ".breednameframe .m-breedname"
   );
   const maleBreedImageElement = document.querySelector(".mbreedimg img");
-
   const altText = clickedImage.getAttribute("alt");
   const src = clickedImage.getAttribute("src");
-  console.log("image src", src);
   lastSelectedMaleDataValue = clickedImage.getAttribute("data-value");
 
   // Update the displayed breed name
   maleBreedNameElement.textContent = altText;
-
   // Set the breed image source to the src of the clicked image
   maleBreedImageElement.src = src;
 
@@ -761,7 +758,6 @@ function handleFemaleImageClick(clickedImage) {
     ".breednameframe .f-breedname"
   );
   const femaleBreedImageElement = document.querySelector(".fbreedimg img");
-
   const altText = clickedImage.getAttribute("alt");
   const src = clickedImage.getAttribute("src");
   lastSelectedFemaleDataValue = clickedImage.getAttribute("data-value");
