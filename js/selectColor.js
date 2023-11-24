@@ -715,42 +715,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-function handleMaleImageClick(clickedImage) {
-  const breedNameElement = document.querySelector(
-    ".breednameframe .m-breedname"
-  );
-  const breedImageElement = document.querySelector(".mbreedimg img");
-
-  const altText = clickedImage.getAttribute("alt");
-  const src = clickedImage.getAttribute("src");
-  lastSelectedMaleDataValue = clickedImage.getAttribute("data-value");
-
-  // Update the displayed breed name
-  breedNameElement.textContent = altText;
-
-  // Set the breed image source to the src of the clicked image
-  breedImageElement.src = src;
-
-  KruisEmbed(lastSelectedMaleDataValue, lastSelectedFemaleDataValue);
-}
-
-function handleFemaleImageClick(clickedImage) {
-  const breedNameElement = document.querySelector(
-    ".breednameframe .f-breedname"
-  );
-  const breedImageElement = document.querySelectorAll(".fbreedimg img");
-
-  const altText = clickedImage.getAttribute("alt");
-  const src = clickedImage.getAttribute("src");
-  lastSelectedFemaleDataValue = clickedImage.getAttribute("data-value");
-  // Update the displayed breed name
-  breedNameElement.textContent = altText;
-  // Set the breed image source to the src of the clicked image
-  breedImageElement.src = src;
-
-  KruisEmbed(lastSelectedMaleDataValue, lastSelectedFemaleDataValue);
-}
-
+//
 document.addEventListener("DOMContentLoaded", function () {
   const maleContainer = document.querySelector(".calmale-right");
   if (maleContainer) {
@@ -770,3 +735,40 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+function handleMaleImageClick(clickedImage) {
+  const maleBreedNameElement = document.querySelector(
+    ".breednameframe .m-breedname"
+  );
+  const maleBreedImageElement = document.querySelector(".mbreedimg img");
+
+  const altText = clickedImage.getAttribute("alt");
+  const src = clickedImage.getAttribute("src");
+  console.log("image src", src);
+  lastSelectedMaleDataValue = clickedImage.getAttribute("data-value");
+
+  // Update the displayed breed name
+  maleBreedNameElement.textContent = altText;
+
+  // Set the breed image source to the src of the clicked image
+  maleBreedImageElement.src = src;
+
+  KruisEmbed(lastSelectedMaleDataValue, lastSelectedFemaleDataValue);
+}
+
+function handleFemaleImageClick(clickedImage) {
+  const femaleBreedNameElement = document.querySelector(
+    ".breednameframe .f-breedname"
+  );
+  const femaleBreedImageElement = document.querySelector(".fbreedimg img");
+
+  const altText = clickedImage.getAttribute("alt");
+  const src = clickedImage.getAttribute("src");
+  lastSelectedFemaleDataValue = clickedImage.getAttribute("data-value");
+  // Update the displayed breed name
+  femaleBreedNameElement.textContent = altText;
+  // Set the breed image source to the src of the clicked image
+  femaleBreedImageElement.src = src;
+
+  KruisEmbed(lastSelectedMaleDataValue, lastSelectedFemaleDataValue);
+}
