@@ -11,22 +11,10 @@
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 	<link rel="stylesheet" href="css/global.css" />
 	<link rel="stylesheet" href="css/index.css" />
-	<link
-		rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Staatliches:wght@400&display=swap"
-	/>
-	<link
-		rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Roboto Condensed:wght@400&display=swap"
-	/>
-	<link
-		rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Albert Sans:wght@400;600&display=swap"
-	/>
-	<link
-		rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap"
-	/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Staatliches:wght@400&display=swap" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto Condensed:wght@400&display=swap" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert Sans:wght@400;600&display=swap" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" />
 	<!-- JS -->
 	<script type="text/javascript" src="./js/colordatabase.php"></script>
 	<script type="text/javascript" src="./js/kruising.js"></script>
@@ -59,13 +47,13 @@
 		}
 
 		function generateResultContent(array2) {
-				let gender = array2[1] === "M" ? 'Male' : 'Female';
-				let ratio = array2[3].match(/Ratio = [^,]*/)[0].replace('Ratio = ', '');
-				let minAnimals = array2[3].match(/minimum of animals to breed: \d+/)[0].replace('minimum of animals to breed: ', '');
-				let description = array2[5];
-				let resultImgSrc = "img/offspring/" + array2[6];
+			let gender = array2[1] === "M" ? 'Male' : 'Female';
+			let ratio = array2[3].match(/Ratio = [^,]*/)[0].replace('Ratio = ', '');
+			let minAnimals = array2[3].match(/minimum of animals to breed: \d+/)[0].replace('minimum of animals to breed: ', '');
+			let description = array2[5];
+			let resultImgSrc = "img/offspring/" + array2[6];
 
-				return `
+			return `
 					<div class="resultinfoindividualframe">
 						<div class="resultimgonlyframe">
 							<img class="icon2" alt="" src="${resultImgSrc}" width="60" />
@@ -93,24 +81,24 @@
 		}
 
 		function clearResults() {
-		document.querySelector('.resultinfoallframe').innerHTML = '';
+			document.querySelector('.resultinfoallframe').innerHTML = '';
 		}
 	</script>
 </head>
 
-	<body>
-		<div class="index1">
-			<div class="chickencal-mainframe">
-				<div class="calmale">
-					<div class="cal-left">
+<body>
+	<div class="index1">
+		<div class="chickencal-mainframe">
+			<div class="calmale">
+				<div class="cal-left">
 					<div class="titleandbreedname">
 						<div class="gender-title">MALE</div>
 						<div class="breednameframe">
-						<div class="m-breedname">Fawn Orange Chicken Baby</div>
+							<div class="m-breedname">Fawn Orange Chicken Baby</div>
 						</div>
 					</div>
 					<div class="breedimg mbreedimg">
-						<img class="icon" alt="" src="./public/1-1@2x.png" />
+						<img class="icon" alt="" src="" width="200" />
 					</div>
 					<div class="colorselection">
 						<button class="color-button-highlight" id="SilverButtonM">
@@ -126,25 +114,21 @@
 							<div class="color">LEMON</div>
 						</button>
 					</div>
-					</div>
-					<div class="calmale-right">
-					<img
-						class="malechickselpic-icon"
-						alt=""
-						src="./public/malechickselpic@2x.png"
-					/>
-					</div>
 				</div>
-				<div class="calmale">
-					<div class="cal-left">
+				<div class="calmale-right">
+					<img class="malechickselpic-icon" alt="" src="./public/malechickselpic@2x.png" />
+				</div>
+			</div>
+			<div class="calmale">
+				<div class="cal-left">
 					<div class="titleandbreedname1">
 						<div class="gender-title">FEMAlE</div>
 						<div class="breednameframe">
-						<div class="f-breedname">Fawn Orange Chicken Baby</div>
+							<div class="f-breedname">Fawn Orange Chicken Baby</div>
 						</div>
 					</div>
 					<div class="breedimg fbreedimg">
-						<img class="icon" alt="" src="./public/1-1@2x.png" />
+						<img class="icon" alt="" src="" width="200" />
 					</div>
 					<div class="colorselection">
 						<button class="color-button-highlight" id="SilverButtonF">
@@ -160,66 +144,57 @@
 							<div class="color">LEMON</div>
 						</button>
 					</div>
-					</div>
-					<div class="calfemale-right">
-					<img
-						class="malechickselpic-icon"
-						alt=""
-						src="./public/malechickselpic@2x.png"
-					/>
-					</div>
-
+				</div>
+				<div class="calfemale-right">
+					<img class="malechickselpic-icon" alt="" src="./public/malechickselpic@2x.png" />
 				</div>
 			</div>
-			<!-- RESULT PANEL -->
+		</div>
+		<!-- RESULT PANEL -->
 		<div class="chickencal-result">
 			<div class="result-top">
 				<button class="clear-frame" onclick="clearResults()">
-				<div class="clear">Clear</div>
+					<div class="clear">Clear</div>
 				</button>
 				<div class="result-frame">
-				<div class="result">Result</div>
+					<div class="result">Result</div>
 				</div>
 			</div>
 			<div class="result-main">
 				<div class="resultinfoallframe">
 					<div class="resultinfoindividualframe">
 						<div class="resultimgonlyframe">
-						<img id="resultImage" class="icon2" alt="" src="" width="60" />
+							<img id="resultImage" class="icon2" alt="" src="" width="60" />
 						</div>
 						<div class="resultinfoonlyframe">
-						<div class="genderinfoframe">
-							<div class="gender-title">Gender:</div>
-							<div class="gender" id="gender"></div>
-						</div>
-						<div class="genderinfoframe">
-							<div class="breed-minimum-title">Breed Minimum:</div>
-							<div class="breed-minimum" id="breed-minimum"></div>
-						</div>
-						<div class="genderinfoframe">
-							<div class="ratio-title">Ratio:</div>
-							<div class="ratio" id="ratio"></div>
-						</div>
-						<div class="genderinfoframe">
-							<div class="genetic-makeup-title">Genetic Makeup:</div>
-							<a class="genetic-click-here" target="_blank">
-							<div class="genetic-makeup-title">Check here</div>
-							<img
-								class="click-here-icon"
-								alt=""
-								src="./public/click-here-icon.svg"
-							/>
-							</a>
-						</div>
-						<div class="descriptionframe">
-							<div class="description-title">Description:</div>
-							<div class="description-content" id="description">
+							<div class="genderinfoframe">
+								<div class="gender-title">Gender:</div>
+								<div class="gender" id="gender"></div>
+							</div>
+							<div class="genderinfoframe">
+								<div class="breed-minimum-title">Breed Minimum:</div>
+								<div class="breed-minimum" id="breed-minimum"></div>
+							</div>
+							<div class="genderinfoframe">
+								<div class="ratio-title">Ratio:</div>
+								<div class="ratio" id="ratio"></div>
+							</div>
+							<div class="genderinfoframe">
+								<div class="genetic-makeup-title">Genetic Makeup:</div>
+								<a class="genetic-click-here" target="_blank">
+									<div class="genetic-makeup-title">Check here</div>
+									<img class="click-here-icon" alt="" src="./public/click-here-icon.svg" />
+								</a>
+							</div>
+							<div class="descriptionframe">
+								<div class="description-title">Description:</div>
+								<div class="description-content" id="description">
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				</div>
 			</div>
 		</div>
-		</div>	
-	</body>
+	</div>
+</body>
