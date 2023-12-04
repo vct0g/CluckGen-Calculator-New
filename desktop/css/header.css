@@ -1,12 +1,10 @@
-/* Add the following styles to the existing styles in your CSS file */
+/* Header Styles */
 
-footer {
-  background: linear-gradient(to top, rgba(242, 176, 13, 0.5) 32%, #f5f5f5);
-  padding: 20px;
-  text-align: center;
-}
-
-.footer-content {
+header {
+  background-image: url("/img/desktop_img/header_background.png");
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,4 +39,36 @@ footer {
 
 .contact a:hover {
   color: #f1812f;
+  max-width: 100px; /* Adjust the size of the logo as needed */
+}
+
+nav {
+  text-align: right;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 15px;
+}
+
+.nav-button {
+  text-decoration: none;
+  color: black;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #f1812f;
+  color: white;
+  border-color: #f1812f;
 }
