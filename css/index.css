@@ -468,3 +468,87 @@
   }
 }
 
+
+@media screen and (max-width: 768px) {
+  .index1 {
+      padding: 0 20px; /* Reduce the padding on smaller screens */
+      gap: 15px;
+  }
+
+  .chickencal-mainframe, .chickencal-result {
+      width: 100%; /* Full width for main content areas */
+      padding: 15px; /* Reduced padding */
+  }
+
+  .calmale, .calmale-right, .calfemale-right {
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center align items */
+      padding: 10px; /* Reduced padding */
+  }
+
+  .calmale-right, .calfemale-right {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-around; /* Distribute items evenly with space around them */
+    width: 100%; /* Full width */
+    padding: 0; /* No padding */
+    margin: 0 auto; /* Center the container if needed */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.calmale-right {
+  flex-direction: row; /* Ensure row layout */
+}
+
+.calfemale-right {
+  flex-direction: row; /* Ensure row layout */
+}
+
+.calmale-right .image-wrapper, .calfemale-right .image-wrapper {
+  width: 85px; /* Fixed width for image wrapper */
+  height: 85px; /* Fixed height for image wrapper */
+  margin: 5px; /* Margin around each image wrapper */
+  flex: 0 0 auto; /* Disable flex grow and shrink */
+}
+
+.calmale-right .image-wrapper img, .calfemale-right .image-wrapper img {
+  width: 100%; /* Image takes full width of the wrapper */
+  height: 100%; /* Image takes full height of the wrapper */
+  object-fit: cover; /* Ensure the image covers the wrapper */
+}
+
+
+
+  .cal-left, .color-selection {
+      width: 100%; /* Full width for these elements */
+      border-right: none; /* Remove the border for mobile devices */
+  }
+
+  .result-main, .resultinfoallframe {
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center align items */
+      width: 100%;
+  }
+
+  .breedimg, .icon {
+      width: 100%; /* Full width for breed images */
+      height: 150px; 
+  }
+
+  .resultinfoindividualframe, .resultinfoonlyframe {
+      flex-direction: column; /* Stack elements vertically */
+  }
+
+  .genderinfoframe, .descriptionframe {
+      align-items: center; /* Center align text and content */
+  }
+
+  .result-frame, .result-top {
+      flex-direction: column; /* Stack elements vertically */
+  }
+
+  .clear-frame, .result-frame {
+      width: 100%; /* Full width for result and clear buttons */
+  }
+}
+
