@@ -26,6 +26,8 @@ body {
   --color-whitesmoke: #ece8e8;
   --color-silver: #bcbcbc;
 
+    /* Change color button */
+  
   /* Gaps */
   --gap-5xl: 24px;
   --gap-3xs: 10px;
@@ -46,4 +48,6 @@ body {
   --br-3xs: 10px;
   --br-8xs: 5px;
   --br-11xl: 30px;
+
+
 }
