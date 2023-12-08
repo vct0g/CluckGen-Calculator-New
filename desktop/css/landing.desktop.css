@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url("/img/desktop_img/chicken.jpg"); /* Adjust the path as needed */
+  background-image: url("../../img//desktop_img//chicken.jpg"); /* Adjust the path as needed */
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -12,7 +12,22 @@ header {
   padding: 10px;
   text-align: right;
 }
+.logo-text {
+  text-align: left;
+}
 
+.logo-main {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0;
+  color: black; /* Adjust the color as needed */
+}
+
+.logo-sub {
+  font-size: 12px;
+  margin: 0;
+  color: bl; /* Adjust the color as needed */
+}
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -48,15 +63,16 @@ nav li {
   min-height: 100vh;
 }
 
-.center-box {
+.center-box { 
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 10px;
+  width: 30%;
   text-align: center;
-  margin-bottom: 10px; /* Reduce the margin to create less space between the box and the button */
+  margin-bottom: 0px; /* Reduce the margin to create less space between the box and the button */
 }
 
 .logo-text {
