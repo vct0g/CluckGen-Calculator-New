@@ -59,6 +59,12 @@
   color: var(--color-black);
   text-align: left;
 }
+
+.color-button-active {
+  background-color: var(--color-gainsboro-100) !important; /* Replace with your desired active color */
+  /* Other styles for active state if needed */
+}
+
 .color-button {
   cursor: pointer;
   border: 0;
@@ -69,7 +75,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   box-sizing: border-box;
+  margin: 5px;
 }
+
+
+
 .cal-left,
 .color-button,
 .color-button1,
@@ -106,23 +116,47 @@
   padding: var(--padding-mini) var(--padding-xs);
   max-width: 256px;
 }
-.malechickselpic-icon {
-  border-radius: var(--br-3xs);
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
   width: 120px;
   height: 118px;
-  overflow: hidden;
-  flex-shrink: 0;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--br-3xs);
   object-fit: cover;
 }
 
-.femalechickselpic-icon {
-  border-radius: var(--br-3xs);
-  width: 120px;
-  height: 118px;
+.hover-text {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  text-align: center;
+  padding: 5px;
+  box-sizing: border-box;
+  /* white-space: nowrap; */
   overflow: hidden;
-  flex-shrink: 0;
-  object-fit: cover;
+  text-overflow: ellipsis;
+  z-index: 2; /* Ensure the text is above the image */
+  font-size: 20px;
 }
+
+.image-wrapper:hover .hover-text {
+  display: block;
+}
+
+
+
+
 
 .calmale-right {
   flex: 1;
@@ -139,6 +173,7 @@
   box-sizing: border-box;
   min-width: 300px;
 }
+
 .calmale,
 .titleandbreedname1 {
   display: flex;
@@ -158,13 +193,15 @@
   gap: var(--gap-3xs);
 }
 .calfemale-right,
+.calmale-right,
 .chickencal-mainframe {
   flex: 1;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.calfemale-right {
+.calfemale-right, .calmale-right
+ {
   border-radius: var(--br-3xs);
   background-color: var(--color-lightgray-100);
   height: 355px;
@@ -430,3 +467,88 @@
     min-width: 100%;
   }
 }
+
+
+@media screen and (max-width: 768px) {
+  .index1 {
+      padding: 0 20px; /* Reduce the padding on smaller screens */
+      gap: 15px;
+  }
+
+  .chickencal-mainframe, .chickencal-result {
+      width: 100%; /* Full width for main content areas */
+      padding: 15px; /* Reduced padding */
+  }
+
+  .calmale, .calmale-right, .calfemale-right {
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center align items */
+      padding: 10px; /* Reduced padding */
+  }
+
+  .calmale-right, .calfemale-right {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-around; /* Distribute items evenly with space around them */
+    width: 100%; /* Full width */
+    padding: 0; /* No padding */
+    margin: 0 auto; /* Center the container if needed */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.calmale-right {
+  flex-direction: row; /* Ensure row layout */
+}
+
+.calfemale-right {
+  flex-direction: row; /* Ensure row layout */
+}
+
+.calmale-right .image-wrapper, .calfemale-right .image-wrapper {
+  width: 85px; /* Fixed width for image wrapper */
+  height: 85px; /* Fixed height for image wrapper */
+  margin: 5px; /* Margin around each image wrapper */
+  flex: 0 0 auto; /* Disable flex grow and shrink */
+}
+
+.calmale-right .image-wrapper img, .calfemale-right .image-wrapper img {
+  width: 100%; /* Image takes full width of the wrapper */
+  height: 100%; /* Image takes full height of the wrapper */
+  object-fit: cover; /* Ensure the image covers the wrapper */
+}
+
+
+
+  .cal-left, .color-selection {
+      width: 100%; /* Full width for these elements */
+      border-right: none; /* Remove the border for mobile devices */
+  }
+
+  .result-main, .resultinfoallframe {
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center align items */
+      width: 100%;
+  }
+
+  .breedimg, .icon {
+      width: 100%; /* Full width for breed images */
+      height: 150px; 
+  }
+
+  .resultinfoindividualframe, .resultinfoonlyframe {
+      flex-direction: column; /* Stack elements vertically */
+  }
+
+  .genderinfoframe, .descriptionframe {
+      align-items: center; /* Center align text and content */
+  }
+
+  .result-frame, .result-top {
+      flex-direction: column; /* Stack elements vertically */
+  }
+
+  .clear-frame, .result-frame {
+      width: 100%; /* Full width for result and clear buttons */
+  }
+}
+

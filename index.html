@@ -20,6 +20,12 @@
 	<script type="text/javascript" src="./js/kruisingduif.js"></script>
 	<script type="text/javascript" src="./js/selectColor.js"></script>
 	<script>
+	
+		//core function for returning results
+		function HaalAfbeelding(mf, gt) {
+			return ZoekPlaatje(getGTforZoekPlaatje(gt, defgt), mf, "chicken");
+		}
+
 		//display the calculation results
 		function KruisEmbed(maleDataValue, femaleDataValue) {
 			let ResultArray = new Array();
@@ -92,10 +98,10 @@
 						</div>
 					</div>
 					<div class="breedimg mbreedimg">
-						<img class="icon" alt="" src="" width="200" />
+						<img class="icon" alt="" src="img/Choose.png" width="200" />
 					</div>
 					<div class="colorselection">
-						<button class="color-button-highlight" id="SilverButtonM">
+						<button class="color-button" id="SilverButtonM">
 							<div class="color">Silver</div>
 						</button>
 						<button class="color-button" id="GoldButtonM">
@@ -122,10 +128,10 @@
 						</div>
 					</div>
 					<div class="breedimg fbreedimg">
-						<img class="icon" alt="" src="" width="200" />
+						<img class="icon" alt="" src="img/Choose.png" width="200" />
 					</div>
 					<div class="colorselection">
-						<button class="color-button-highlight" id="SilverButtonF">
+						<button class="color-button" id="SilverButtonF">
 							<div class="color">Silver</div>
 						</button>
 						<button class="color-button" id="GoldButtonF">
@@ -140,8 +146,9 @@
 					</div>
 				</div>
 				<div class="calfemale-right">
-					<img class="malechickselpic-icon" alt="" src="./public/malechickselpic@2x.png" />
+					<img class="femalechickselpic-icon" alt="" src="" />
 				</div>
+				
 			</div>
 		</div>
 		<!-- RESULT PANEL -->
