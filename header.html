@@ -4,35 +4,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/header.desktop.css">
-  <link rel="stylesheet" href="../css/header.mobile.css">
-  <script defer src="../landingpage/landing.js"></script>
+  <link rel="stylesheet" href="css/header.desktop.css">
+  <link rel="stylesheet" href="css/header.mobile.css">
+  <script defer src="js/landing.js"></script>
   <title>CluckGen</title>
 </head>
 
 <body>
   <header>
     <div class="logo">
-      <img src="../../img/desktop_img/cluckgen_logo.png" alt="CluckGen Logo">
-      <div class="empty-box"></div> <!-- Added empty-box div -->
+      <img src="img/desktop_img/cluckgen_logo.png" alt="CluckGen Logo">
+      <!-- <div class="empty-box">
+        <h1>Choose the color and chicken to calculate the output</h1>
+      </div> Added empty-box div -->
       <div class="logo-text">
         <p class="logo-main">CluckGen</p>
         <p class="logo-sub">Genetic Chicken Calculator</p>
       </div>
     </div>
     <nav>
-      <ul>
+      <div class="hamburger-menu" onclick="toggleMobileMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="nav-list">
         <li><a href="home.html" class="nav-button">Home</a></li>
         <li><a href="calculate.html" class="nav-button">Calculate</a></li>
-        <li><a href="breeds.html" class="nav-button">Breeds</a></li>
         <li><a href="contact.html" class="nav-button">Contact us</a></li>
       </ul>
     </nav>
+
+
   </header>
 
   <div class="main-content">
     <!-- Rest of your content goes here -->
   </div>
 </body>
+<!-- Add this line to include the JavaScript file -->
+<script defer src="js/mobile-menu.js"></script>
 
 </html>

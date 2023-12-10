@@ -1,10 +1,10 @@
 /* Header mobile Styles */
-@media only screen and (max-withd: 768px) {
+@media only screen and (max-width: 768px) {
   body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url("../../img//desktop_img//chicken.jpg"); /* Adjust the path as needed */
+    background-image: url("../img/mobile_img/landing.mobile.png"); /* Adjust the path as needed */
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -17,7 +17,6 @@
   .logo-text {
     text-align: left;
   }
-
   .logo-main {
     font-size: 25px;
     font-weight: bold;
@@ -82,8 +81,8 @@
   }
 
   .logo-text img {
-    max-width: 100px;
-    margin-right: 20px; /* Adjust the margin as needed */
+    max-width: 30px;
+    margin-right: 10px; /* Adjust the margin as needed */
   }
 
   .logo-text div {
@@ -104,5 +103,53 @@
   button:hover {
     background-color: #f1812f;
     color: white;
+  }
+  /* Added styles for the mobile menu */
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .hamburger-menu div {
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  /* Additional styling for animation when menu is open */
+  .hamburger-menu.active div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger-menu.active div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /* Added styles for the mobile navigation menu */
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #f2b00d;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-list li {
+    margin: 10px 0;
   }
 }

@@ -1,8 +1,7 @@
-/* Header mobile Styles */
-
-@media only screen and (max-width: 768px) {
+/* Header desktop Styles */
+@media only screen and (min-width: 769px) {
   header {
-    background-image: url("../../img/desktop_img/header_background.png");
+    background-image: url("../img/desktop_img/header_background.png");
     background-size: cover;
     background-position: center;
     padding: 10px;
@@ -68,19 +67,5 @@
     background-color: #f1812f;
     color: white;
     border-color: #f1812f;
-  }
-
-  /* Added styles for the empty box */
-  .empty-box {
-    position: absolute;
-    bottom: 0;
-    top: 120px;
-    left: 0;
-    width: 100%;
-    height: 80px; /* Adjust the height as needed */
-    background-color: transparent;
-    background: linear-gradient(to top, transparent, #f2b00d);
-
-    transition: background-color 0.3s;
   }
 }

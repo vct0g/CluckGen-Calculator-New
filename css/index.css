@@ -6,13 +6,10 @@
   justify-content: center; /* Center-align items in the second row */
 }
 
-
 .gender-title {
   position: relative;
   text-transform: capitalize;
 }
-
- 
 
 .breednameframe,
 .titleandbreedname {
@@ -397,10 +394,9 @@
   justify-content: flex-start;
 }
 
-
 .resultinfoallframe {
-  max-height: 800px; 
-  overflow-y: auto; 
+  max-height: 800px;
+  overflow-y: auto;
 }
 
 .resultinfoallframe {
@@ -552,3 +548,36 @@
   }
 }
 
+/* Added styles for the empty box for background of the main page*/
+.empty-box {
+  position: absolute;
+  bottom: 0;
+  top: 120px;
+  left: 0;
+  width: 100%;
+  height: 80px; /* Adjust the height as needed */
+  background-color: transparent;
+  background: linear-gradient(to top, transparent, #f2b00d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+@media only screen and (max-width: 768px) {
+  .empty-box {
+    position: absolute;
+    bottom: 0;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Adjust the height as needed */
+    background-color: transparent;
+    background: linear-gradient(to top, transparent, #f2b00d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5pt;
+    transition: background-color 0.3s;
+    z-index: 1000;
+  }
+}
