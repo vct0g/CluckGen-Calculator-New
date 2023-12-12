@@ -77,7 +77,7 @@
     cursor: pointer;
     padding: 5px;
     position: relative;
-    z-index: 999;
+    /* z-index: 999; */
   }
 
   .hamburger-menu div {
