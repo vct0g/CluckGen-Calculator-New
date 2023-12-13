@@ -527,8 +527,7 @@
   }
 
   .breedimg, .icon {
-      width: 100%; /* Full width for breed images */
-      height: 150px; 
+      width: 100%; /* Full width for breed images */ 
   }
 
   .resultinfoindividualframe, .resultinfoonlyframe {
