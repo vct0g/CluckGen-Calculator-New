@@ -42,15 +42,17 @@
 			let allResultsHtml = "";
 			for (ee = 0; ee < ResultArray.length; ee++) {
 				array2 = ResultArray[ee].split(';');
-				allResultsHtml += generateResultContent(array2);
-				//log values to console
-				console.log("array2[0]: ", array2[0]);
-				console.log("array2[1]: ", array2[1]);
-				console.log("array2[2]: ", array2[2]);
-				console.log("array2[3]: ", array2[3]);
-				console.log("array2[4]: ", array2[4]);
-				console.log("array2[5]: ", array2[5]);
-				console.log("array2[6]: ", array2[6]);
+				if (array2[0] = "GENOTYPE") {
+					allResultsHtml += generateResultContent(array2);
+					//log values to console
+					console.log("array2[0]: ", array2[0]);
+					console.log("array2[1]: ", array2[1]);
+					console.log("array2[2]: ", array2[2]);
+					console.log("array2[3]: ", array2[3]);
+					console.log("array2[4]: ", array2[4]);
+					console.log("array2[5]: ", array2[5]);
+					console.log("array2[6]: ", array2[6]);
+				}
 			}
 			document.querySelector(".resultinfoallframe").innerHTML = allResultsHtml;
 		}
@@ -68,22 +70,24 @@
 							<img class="icon2" alt="" src="${resultImgSrc}" width="60" />
 						</div>
 						<div class="resultinfoonlyframe">
-							<div class="genderinfoframe">
-								<div class="gender-title">Gender:</div>
-								<div class="gender">${gender}</div>
-							</div>
-							<div class="genderinfoframe">
-								<div class="breed-minimum-title">Breed Minimum:</div>
-								<div class="breed-minimum">${minAnimals}</div>
-							</div>
-							<div class="genderinfoframe">
-								<div class="ratio-title">Ratio:</div>
-								<div class="ratio">${ratio}</div>
-							</div>
-							<div class="descriptionframe">
-								<div class="description-title">Description:</div>
-								<div class="description-content">${description}</div>
-							</div>
+								<div class="card">
+									<div class="info-container">
+										<div class="info-title">Gender:</div>
+										<div class="info-value">${gender}</div>
+									</div>
+									<div class="info-container">
+										<div class="info-title">Breed Minimum:</div>
+										<div class="info-value">${minAnimals}</div>
+									</div>
+									<div class="info-container">
+										<div class="info-title">Ratio:</div>
+										<div class="info-value">${ratio}</div>
+									</div>
+									<div class="info-container">
+										<div class="info-title">Description:</div>
+										<div class="info-value">${description}</div>
+									</div>
+								</div>
 						</div>
 					</div>
 				`;
