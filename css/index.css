@@ -612,3 +612,27 @@ h1 {
   flex: 1 1 auto; 
   min-width: 50px; 
 }
+
+/* Mobile Responsive Adjustments for .resultinfoindividualframe */
+
+@media only screen and (max-width: 600px) {
+  .resultinfoindividualframe {
+      margin: 10px; /* Adjust margin for smaller screens */
+      width: auto; /* Adjust width to fit the screen */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .resultinfoindividualframe .info-container {
+      width: 100%; /* Full width for child elements */
+      padding: 5px; /* Smaller padding */
+  }
+
+  .resultinfoindividualframe .info-title,
+  .resultinfoindividualframe .info-value {
+      font-size: 14px; /* Smaller font size for readability */
+  }
+
+  /* Additional responsive adjustments can be added here */
+}
