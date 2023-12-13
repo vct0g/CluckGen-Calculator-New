@@ -1,0 +1,63 @@
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.orangebox {
+  background: linear-gradient(to bottom, rgb(242, 177, 13,0.8), rgb(255, 255, 255, 1));
+  display: flex;
+  justify-content: center;
+  height: 20%
+  
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #707070;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="submit"] {
+  background-color: #D5D5D5;
+  border-color: #0e0e0e;
+  color: #0e0e0e;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(242, 177, 13,0.8);
+  border-color: #0e0e0e;
+  color: #0e0e0e;
+  cursor: pointer;
+}
+
+#message {
+  height: 100px;
+}
+
+#send-button {
+  width: 200px;
+}
+
+.box-button {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
