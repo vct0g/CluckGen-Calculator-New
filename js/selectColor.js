@@ -113,7 +113,7 @@ containerm.innerHTML = `
    <span class="hover-text">Black Copper</span>
 </div>
 <div class="image-wrapper">
-   <img class="malechickselpic-icon" src="img/male/zwartgoudcolumbia.JPG" alt="Buff Columbian" data-value='E:e^b/e^b,Co:Co/Co'>
+   <img class="malechickselpic-icon" src="img/male/Mzwartgoudcolumbia.JPG" alt="Buff Columbian" data-value='E:e^b/e^b,Co:Co/Co'>
    <span class="hover-text">Buff Columbian</span>
 </div>
 <div class="image-wrapper">
@@ -121,7 +121,7 @@ containerm.innerHTML = `
    <span class="hover-text">Buff Cuckoo</span>
 </div>
 <div class="image-wrapper">
-   <img class="malechickselpic-icon" src="img/male/Mzwartgoudgeloverd" alt="Spangled" data-value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml'>
+   <img class="malechickselpic-icon" src="img/male/Mzwartgoudgeloverd.JPG" alt="Spangled" data-value='E:E^R/E^R,Db:Db/Db,Pg:Pg/Pg,Ml:Ml/Ml'>
    <span class="hover-text">Spangled</span>
 </div>
 <div class="image-wrapper">
@@ -157,11 +157,11 @@ break;
 case "LemonM":
 containerm.innerHTML = `
 <div class="image-wrapper">
-   <img class="malechickselpic-icon" src="img/male/MFzwartgeelpatrijs.JPG" alt="Cream Light Brown" data-value='E:e+/e+,Ig:ig/ig'>
+   <img class="malechickselpic-icon" src="img/male/zwartgeelpatrijs.JPG" alt="Cream Light Brown" data-value='E:e+/e+,Ig:ig/ig'>
    <div class="hover-text">Cream Light Brown</div>
 </div>
 <div class="image-wrapper">
-   <img class="malechickselpic-icon" src="img/male/MFzwartgeeltarwe.jpg" alt="Cream Wheaten" data-value='E:E^Wh/E^Wh,S:S/(s+)'>
+   <img class="malechickselpic-icon" src="img/male/zwartgeelpatrijs.JPG" alt="Cream Wheaten" data-value='E:E^Wh/E^Wh,S:S/(s+)'>
    <div class="hover-text">Cream Wheaten</div>
 </div>
 <div class="image-wrapper">
@@ -336,7 +336,7 @@ containerf.innerHTML = `
    <div class="hover-text">Golden Duckwing</div>
 </div>
 <div class="image-wrapper">
-   <img class="malechickselpic-icon" src="img/male/zwartzilvertarwe.JPG" alt="Silver Wheaten" data-value='E:E^Wh/E^Wh,S:S/(S)'>
+   <img class="malechickselpic-icon" src="img/male/zwartzilverpatrijs.JPG" alt="Silver Wheaten" data-value='E:E^Wh/E^Wh,S:S/(S)'>
    <div class="hover-text">Silver Wheaten</div>
 </div>
 <div class="image-wrapper">
