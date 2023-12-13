@@ -552,7 +552,9 @@
     width: 100%; /* Full width for result and clear buttons */
   }
 }
-
+h1 {
+  text-align: center;
+}
 /* Added styles for the empty box for background of the main page*/
 /*.empty-box {
   position: absolute;
