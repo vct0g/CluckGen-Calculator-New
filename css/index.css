@@ -58,7 +58,9 @@
 }
 
 .color-button-active {
-  background-color: var(--color-gainsboro-100) !important; /* Replace with your desired active color */
+  background-color: var(
+    --color-gainsboro-100
+  ) !important; /* Replace with your desired active color */
   /* Other styles for active state if needed */
 }
 
@@ -74,8 +76,6 @@
   box-sizing: border-box;
   margin: 5px;
 }
-
-
 
 .cal-left,
 .color-button,
@@ -151,10 +151,6 @@
   display: block;
 }
 
-
-
-
-
 .calmale-right {
   flex: 1;
   border-radius: var(--br-3xs);
@@ -197,8 +193,8 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
-.calfemale-right, .calmale-right
- {
+.calfemale-right,
+.calmale-right {
   border-radius: var(--br-3xs);
   background-color: var(--color-lightgray-100);
   height: 355px;
@@ -464,25 +460,28 @@
   }
 }
 
-
 @media screen and (max-width: 768px) {
   .index1 {
-      padding: 0 20px; /* Reduce the padding on smaller screens */
-      gap: 15px;
+    padding: 0 20px; /* Reduce the padding on smaller screens */
+    gap: 15px;
   }
 
-  .chickencal-mainframe, .chickencal-result {
-      width: 100%; /* Full width for main content areas */
-      padding: 15px; /* Reduced padding */
+  .chickencal-mainframe,
+  .chickencal-result {
+    width: 100%; /* Full width for main content areas */
+    padding: 15px; /* Reduced padding */
   }
 
-  .calmale, .calmale-right, .calfemale-right {
-      flex-direction: column; /* Stack elements vertically */
-      align-items: center; /* Center align items */
-      padding: 10px; /* Reduced padding */
+  .calmale,
+  .calmale-right,
+  .calfemale-right {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align items */
+    padding: 10px; /* Reduced padding */
   }
 
-  .calmale-right, .calfemale-right {
+  .calmale-right,
+  .calfemale-right {
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap */
     justify-content: space-around; /* Distribute items evenly with space around them */
@@ -490,60 +489,67 @@
     padding: 0; /* No padding */
     margin: 0 auto; /* Center the container if needed */
     overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-.calmale-right {
-  flex-direction: row; /* Ensure row layout */
-}
-
-.calfemale-right {
-  flex-direction: row; /* Ensure row layout */
-}
-
-.calmale-right .image-wrapper, .calfemale-right .image-wrapper {
-  width: 85px; /* Fixed width for image wrapper */
-  height: 85px; /* Fixed height for image wrapper */
-  margin: 5px; /* Margin around each image wrapper */
-  flex: 0 0 auto; /* Disable flex grow and shrink */
-}
-
-.calmale-right .image-wrapper img, .calfemale-right .image-wrapper img {
-  width: 100%; /* Image takes full width of the wrapper */
-  height: 100%; /* Image takes full height of the wrapper */
-  object-fit: cover; /* Ensure the image covers the wrapper */
-}
-
-
-
-  .cal-left, .color-selection {
-      width: 100%; /* Full width for these elements */
-      border-right: none; /* Remove the border for mobile devices */
   }
 
-  .result-main, .resultinfoallframe {
-      flex-direction: column; /* Stack elements vertically */
-      align-items: center; /* Center align items */
-      width: 100%;
+  .calmale-right {
+    flex-direction: row; /* Ensure row layout */
   }
 
-  .breedimg, .icon {
-      width: 100%; /* Full width for breed images */ 
+  .calfemale-right {
+    flex-direction: row; /* Ensure row layout */
   }
 
-  .resultinfoindividualframe, .resultinfoonlyframe {
-      flex-direction: column; /* Stack elements vertically */
+  .calmale-right .image-wrapper,
+  .calfemale-right .image-wrapper {
+    width: 85px; /* Fixed width for image wrapper */
+    height: 85px; /* Fixed height for image wrapper */
+    margin: 5px; /* Margin around each image wrapper */
+    flex: 0 0 auto; /* Disable flex grow and shrink */
   }
 
-  .genderinfoframe, .descriptionframe {
-      align-items: center; /* Center align text and content */
+  .calmale-right .image-wrapper img,
+  .calfemale-right .image-wrapper img {
+    width: 100%; /* Image takes full width of the wrapper */
+    height: 100%; /* Image takes full height of the wrapper */
+    object-fit: cover; /* Ensure the image covers the wrapper */
   }
 
-  .result-frame, .result-top {
-      flex-direction: column; /* Stack elements vertically */
+  .cal-left,
+  .color-selection {
+    width: 100%; /* Full width for these elements */
+    border-right: none; /* Remove the border for mobile devices */
   }
 
-  .clear-frame, .result-frame {
-      width: 100%; /* Full width for result and clear buttons */
+  .result-main,
+  .resultinfoallframe {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align items */
+    width: 100%;
+  }
+
+  .breedimg,
+  .icon {
+    width: 100%; /* Full width for breed images */
+  }
+
+  .resultinfoindividualframe,
+  .resultinfoonlyframe {
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .genderinfoframe,
+  .descriptionframe {
+    align-items: center; /* Center align text and content */
+  }
+
+  .result-frame,
+  .result-top {
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .clear-frame,
+  .result-frame {
+    width: 100%; /* Full width for result and clear buttons */
   }
 }
 
@@ -577,6 +583,6 @@
     align-items: center;
     font-size: 5pt;
     transition: background-color 0.3s;
-    z-index: 1000;
+    z-index: 1;
   }
 }

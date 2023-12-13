@@ -55,6 +55,7 @@
   }
 
   .nav-button {
+    font-size: 10px;
     text-decoration: none;
     color: black;
     background-color: transparent;
@@ -111,6 +112,7 @@
     left: 0;
     width: 100%;
     background-color: #f2b00d;
+    z-index: 99;
   }
 
   .nav-list.active {
