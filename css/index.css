@@ -535,6 +535,7 @@
   .resultinfoindividualframe,
   .resultinfoonlyframe {
     flex-direction: column; /* Stack elements vertically */
+    overflow-y: auto;
   }
 
   .genderinfoframe,
@@ -587,4 +588,27 @@ h1 {
     transition: background-color 0.3s;
     z-index: 1;
   }
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+.info-container {
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center; 
+  gap: 8px;
+}
+
+.info-title {
+  white-space: nowrap; 
+  margin-right: 4px; 
+}
+
+.info-value {
+  flex: 1 1 auto; 
+  min-width: 50px; 
 }
